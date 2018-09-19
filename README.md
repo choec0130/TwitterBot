@@ -1,2 +1,2 @@
 # TwitterBot
-"# Twitter Bot" 
+Create a Twitter Bot with utilizing JavaScript and Node.js.
