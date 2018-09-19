@@ -1,0 +1,19 @@
+{
+  "name": "npm_demo",
+  "version": "1.0.0",
+  "description": "Practice with Node and NPM.",
+  "main": "MyBot.js",
+  "dependencies": {
+    "twit": "^2.2.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Twitter",
+    "Bot"
+  ],
+  "author": "Chloe Choe",
+  "license": "ISC"
+}
