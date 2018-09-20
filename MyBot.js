@@ -1,4 +1,8 @@
-console.log("hello");
+// Author: Chloe Choe
+// Description: Bot that retweets every hour from a queue of public tweets with hashtag #giveaway
+
+// Using the Twit node package
+// https://github.com/ttezel/twit
 
 var Twit = require('twit');
 var config = require('./config');
