@@ -1,2 +1,2 @@
 # TwitterBot
-Create a Twitter Bot with utilizing JavaScript and Node.js.
+Created a Twitter Bot with utilizing JavaScript, Node.js, and Heroku.
