@@ -28,8 +28,9 @@ giveawayStream.on('tweet', function(tweet) {
 	
 	tweetIdQueue.push(id_str);
 
-	retweetTweet();
 })
+
+setInterval(() => retweetTweet(), 1000*60*30); //retweet every 30 minutes
 
 function gotData(err, data, response) {
 
@@ -56,20 +57,14 @@ function gotData(err, data, response) {
 
 function retweetTweet() {
 
-	if(tweetIdQueue.length > 0) {
-		//  get the id of the firstTweet in the queue
-		var firstTweetId = tweetIdQueue.shift();	
+	//  get the id of the firstTweet in the queue
+	var firstTweetId = tweetIdQueue.shift();	
 
-		console.log(firstTweetId);
+	console.log(firstTweetId);
 
-		T.post('statuses/retweet/:id', { id: firstTweetId }, function (err, data, response) {
-			console.log(data);
-		});
-
-		setTimeout(retweetTweet, 1000*60); //try to retweet again in 1 min
-	} else {
-		setTimeout(retweetTweet, 1000*60); //try to retweet again in 1 minute
-	}
+	T.post('statuses/retweet/:id', { id: firstTweetId }, function (err, data, response) {
+		console.log(data);
+	});
 }
 
 
@@ -88,15 +83,12 @@ function writeToFile(eventMsg) {
 
 
 
+//function to follow back a user
 function followed(eventMsg) {
 	var name = event.source.name;
 	var screenName = eventMsg.source.screen_name;
 	postTweet('@' + screenName + 'Thanks for following!');
 }
-
-
-//T.get('search/tweets', params, gotData);
-
 
 
 function tweetEvent(eventMsg) {
@@ -129,4 +121,5 @@ function postTweet(myText) {
 		}
 	}
 }
+
 
